@@ -45,15 +45,42 @@ A0 = Y7 + Y5 + Y3 + Y1 <br>
 
 ## Program:
 
+## Decoder:
+```
+module decoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=((~a)&(~b)&(~c));
+assign d1=((~a)&(~b)&c);
+assign d2=((~a)&b&(~c));
+assign d3=((~a)&b&c);
+assign d4=(a&(~b)&(~c));
+assign d5=(a&(~b)&c);
+assign d6=(a&b&(~c));
+assign d7=(a&b&c);
+endmodule
+```
+
+## Encoder:
+```
+module encoder(y0,y1,y2,y3,y4,y5,y6,y7,a0,a1,a2);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+assign a0=(y7|y5|y3|y1);
+assign a1=(y7|y6|y3|y2);
+assign a2=(y7|y6|y5|y4);
+endmodule
+```
 
 ## RTL Schematic:
+![image](https://github.com/jeyaqbalan7/encoder-decoder/assets/119393851/b01899f6-c489-4974-9370-d5be9c6fe299)
 
-
-
+![image](https://github.com/jeyaqbalan7/encoder-decoder/assets/119393851/303837c2-10f3-44c6-8039-26a7f723509e)
 
 ## Timing Diagram:
+![image](https://github.com/jeyaqbalan7/encoder-decoder/assets/119393851/bff6a528-8d78-44e6-a069-e859fdc486e3)
 
-
+![image](https://github.com/jeyaqbalan7/encoder-decoder/assets/119393851/bf3ac034-ad22-4058-9ace-f5ad810396dd)
 
 ## Result:
 Thus the decoder and encoder circuits are designed and implemented and the truth tables are verified.
